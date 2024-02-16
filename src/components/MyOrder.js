@@ -3,23 +3,36 @@ import axios from "axios";
 import Layout from "./LayOut/Layout";
 import OrderDetails from "./OrderDetails";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function MyOrder() {
   const [value, setValue] = useState([]);
   const [deletedOrderId, setDeletedOrderId] = useState(null);
   const uniqueId = localStorage.getItem("uniqueId");
-
-  async function fetchMyorder() {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API}/restaurant/order?id=${uniqueId}`
-      );
-      setValue(response.data);
-    } catch (err) {
-      console.log("Error fetching orders", err);
+  const navigate = useNavigate();
+  useEffect(() => {
+    async function fetchMyorder() {
+      const token = localStorage.getItem("authtoken");
+      if (!token) {
+        return navigate("/login");
+      }
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API}/restaurant/order?id=${uniqueId}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        setValue(response.data);
+      } catch (err) {
+        console.log("Error fetching orders", err);
+      }
     }
-  }
 
+    fetchMyorder();
+  }, [deletedOrderId]);
   async function deleteOrder(orderId) {
     try {
       const response = await axios.delete(
@@ -31,10 +44,6 @@ function MyOrder() {
       toast.error("Order Delete Failed", err);
     }
   }
-
-  useEffect(() => {
-    fetchMyorder();
-  }, [deletedOrderId]);
 
   return (
     <Layout title={"my-order zomato-app"}>

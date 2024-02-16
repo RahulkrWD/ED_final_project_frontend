@@ -21,6 +21,10 @@ function PlaceOrder() {
 
   const navigate = useNavigate();
   async function fetchData() {
+    const token = localStorage.getItem("authtoken");
+    if (!token) {
+      return navigate("/login");
+    }
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API}/restaurant/placeOrder`,
@@ -34,6 +38,11 @@ function PlaceOrder() {
           restName,
           orderItems,
           uniqueId,
+        },
+        {
+          headers: {
+            Authorization: token,
+          },
         }
       );
       if (response.data.success) {

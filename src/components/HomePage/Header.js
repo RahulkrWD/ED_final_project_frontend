@@ -1,14 +1,11 @@
 import React from "react";
 import styles from "../HomePage/Header.module.css";
 import Search from "../HomePage/Search";
-import NavBar from "../LayOut/NavBar";
-
 function Header() {
   return (
     <>
       <header className={styles.bgImg}>
-        <NavBar />
-        <center className={styles.container}>
+        <center>
           <div className="web-site logo">
             <h1 className={styles.titleLogo}>e!</h1>
           </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./profile.module.css";
 import EditProfile from "./EditProfile";
@@ -7,12 +7,22 @@ import Layout from "../LayOut/Layout";
 
 function Profile() {
   const [profiles, setProfile] = useState(null);
+  const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     async function fetchProfile() {
+      const token = localStorage.getItem("authtoken");
       try {
+        if (!token) {
+          return navigate("/login");
+        }
         const response = await axios.get(
-          `${process.env.REACT_APP_API}/createUser/profile/${id}`
+          `${process.env.REACT_APP_API}/createUser/profile/${id}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
         );
         setProfile(response.data);
       } catch (err) {
@@ -21,7 +31,7 @@ function Profile() {
     }
 
     fetchProfile();
-  }, [id]);
+  });
 
   return (
     <Layout title={"profile zomato-app"}>
