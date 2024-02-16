@@ -1,0 +1,21 @@
+.bgImg {
+  background-image: linear-gradient(#9d0e0e00, #4f0707),
+    url(/public/image/header-logo.png);
+  width: 100%;
+  min-height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.titleLogo {
+  background-color: white;
+  width: min-content;
+  padding: 15px 20px;
+  border-radius: 50%;
+  font-weight: bolder;
+  color: red;
+}
+
+.container {
+  margin-top: 65px;
+}

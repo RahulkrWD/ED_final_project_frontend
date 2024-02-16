@@ -1,0 +1,38 @@
+.heading {
+  font-size: 35px;
+  color: #192f60;
+  border-bottom: 3px solid #192f60;
+  width: fit-content;
+}
+
+.tag {
+  color: #8c96ab;
+  font-size: 18px;
+}
+
+.mealType {
+  color: #192f60;
+}
+
+.description {
+  color: #8c96ab;
+}
+
+.cardFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10vmin;
+}
+
+.card {
+  margin-bottom: 20px;
+  width: 18rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px #8c96ab, 2px 2px 15px #8c96ab;
+  text-decoration: none;
+}
+
+.image {
+  height: 200px;
+  object-fit: cover;
+}
