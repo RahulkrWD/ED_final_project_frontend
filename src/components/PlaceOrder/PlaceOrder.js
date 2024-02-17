@@ -5,6 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Layout from "../LayOut/Layout";
+//import Payment from "./Payment";
+
 function PlaceOrder() {
   const restaurantName = sessionStorage.getItem("restaurant");
 
@@ -95,6 +97,7 @@ function PlaceOrder() {
           <button className="btn text-bg-success" onClick={fetchData}>
             Click
           </button>
+          {/* <Payment /> */}
         </center>
       </div>
     </Layout>
