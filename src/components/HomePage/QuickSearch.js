@@ -25,7 +25,7 @@ function QuickSearch() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <h1 className={styles.heading}>Quick Searches</h1>
       <p className={`${styles.tag} mt-3`}>
         Discover restaurants by type of meal

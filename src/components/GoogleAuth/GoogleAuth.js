@@ -38,14 +38,14 @@ function GoogleAuth() {
   };
 
   return (
-    <>
+    <div>
       <GoogleLogin
         onSuccess={handleGoogleSignup}
         onError={() => {
           toast.error("Google Signup Failed");
         }}
       />
-    </>
+    </div>
   );
 }
 

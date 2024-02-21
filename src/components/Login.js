@@ -97,7 +97,7 @@ export default function Login() {
                 Login
               </Button>
               <center>
-                <GoogleOAuthProvider clientId="943812210495-8b302cofk4i6pqhmof6tt6b9gc4bs1vn.apps.googleusercontent.com">
+                <GoogleOAuthProvider clientId={process.env.REACT_APP_Clint_id}>
                   <GoogleAuthLogin />
                 </GoogleOAuthProvider>
                 <br />

@@ -19,20 +19,28 @@
 }
 
 .cardFlex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10vmin;
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4rem;
 }
 
 .card {
   margin-bottom: 20px;
   width: 18rem;
   border-radius: 10px;
-  box-shadow: 4px 4px 10px #8c96ab, 2px 2px 15px #8c96ab;
+  box-shadow: 2px 2px 7px #8c96ab;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .image {
   height: 200px;
   object-fit: cover;
+}
+.card:hover,
+.card:active {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 10px black;
 }

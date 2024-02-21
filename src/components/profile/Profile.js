@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./profile.module.css";
-import EditProfile from "./EditProfile";
 import Layout from "../LayOut/Layout";
 
 function Profile() {
@@ -53,7 +52,7 @@ function Profile() {
                   </p>
                 ) : null}
               </div>
-              <EditProfile />
+              {/* <EditProfile /> */}
             </div>
           ) : (
             <p>Loading...</p>

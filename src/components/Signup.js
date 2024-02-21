@@ -25,7 +25,6 @@ export default function Signup() {
   const uniqueId = Math.ceil(Math.random() * 999999);
 
   const navigate = useNavigate();
-
   const handleSignup = async () => {
     try {
       const response = await axios.post(
@@ -113,7 +112,7 @@ export default function Signup() {
                 Sign In
               </Button>
               <center>
-                <GoogleOAuthProvider clientId="943812210495-8b302cofk4i6pqhmof6tt6b9gc4bs1vn.apps.googleusercontent.com">
+                <GoogleOAuthProvider clientId={process.env.REACT_APP_Clint_id}>
                   <GoogleAuth />
                 </GoogleOAuthProvider>
                 <br />
