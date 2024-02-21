@@ -109,3 +109,14 @@
   margin-top: 50px;
   font-size: 15px;
 }
+@media (max-width: 500px) {
+  .profileCard {
+    width: 300px;
+  }
+}
+
+@media (max-width: 320px) {
+  .profileCard {
+    width: 250px;
+  }
+}
