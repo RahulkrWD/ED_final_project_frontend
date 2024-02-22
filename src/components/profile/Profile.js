@@ -16,12 +16,7 @@ function Profile() {
           return navigate("/login");
         }
         const response = await axios.get(
-          `${process.env.REACT_APP_API}/createUser/profile/${id}`,
-          {
-            headers: {
-              Authorization: token,
-            },
-          }
+          `${process.env.REACT_APP_API}/createUser/profile/${id}`
         );
         setProfile(response.data);
       } catch (err) {

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../PlaceOrder/PlaceOrder.module.css";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Layout from "../LayOut/Layout";
-//import Payment from "./Payment";
 
 function PlaceOrder() {
   const restaurantName = sessionStorage.getItem("restaurant");
@@ -22,11 +21,15 @@ function PlaceOrder() {
   const uniqueId = localStorage.getItem("uniqueId");
 
   const navigate = useNavigate();
-  async function fetchData() {
+
+  useEffect(() => {
     const token = localStorage.getItem("authtoken");
     if (!token) {
-      return navigate("/login");
+      navigate("/login");
     }
+  });
+
+  async function fetchData() {
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API}/restaurant/placeOrder`,
@@ -40,11 +43,6 @@ function PlaceOrder() {
           restName,
           orderItems,
           uniqueId,
-        },
-        {
-          headers: {
-            Authorization: token,
-          },
         }
       );
       if (response.data.success) {
@@ -78,14 +76,12 @@ function PlaceOrder() {
             onChange={(e) => setEmail(e.target.value)}
             variant="outlined"
           />
-
           <TextField
             label="Phone Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             variant="outlined"
           />
-
           <TextField
             label="Address"
             value={address}
@@ -97,7 +93,6 @@ function PlaceOrder() {
           <button className="btn text-bg-success" onClick={fetchData}>
             Click
           </button>
-          {/* <Payment /> */}
         </center>
       </div>
     </Layout>
