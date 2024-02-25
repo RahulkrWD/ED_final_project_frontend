@@ -55,7 +55,7 @@ function MenuList({ heading }) {
       sessionStorage.setItem("totalPrice", totalPrice);
 
       localStorage.getItem("authtoken")
-        ? navigate(`/placeOrder/${heading.restaurant_name}`)
+        ? navigate(`/placeOrder`)
         : navigate("/login");
     }
   }

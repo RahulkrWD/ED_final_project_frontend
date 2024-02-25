@@ -27,7 +27,9 @@ function GoogleAuthLogin() {
         localStorage.setItem("authtoken", token);
         localStorage.setItem("user", user.name);
         localStorage.setItem("uniqueId", user.uniqueId);
-        navigate("/");
+        sessionStorage.getItem("restaurant")
+          ? navigate("/placeOrder")
+          : navigate("/");
       } else {
         toast.error(response.data.message);
       }

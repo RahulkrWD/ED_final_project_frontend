@@ -10,6 +10,7 @@ function NavBar() {
   function handleLogout() {
     localStorage.removeItem("authtoken");
     localStorage.removeItem("user");
+    sessionStorage.removeItem("restaurant");
     toast.success("Logout Successfull");
   }
 

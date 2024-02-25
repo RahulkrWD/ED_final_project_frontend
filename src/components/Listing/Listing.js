@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-//import CuisineFilter from "../Listing/CuisineFilter";
-//import CostFilter from "../Listing/CostFilter";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
 import Meal from "./Meal";
 import styles from "../Listing/Listing.module.css";
-//import SortFilter from "../Listing/SortFilter";
 import Layout from "../LayOut/Layout";
 import Filter from "./Filter";
 
@@ -52,9 +49,6 @@ function Listing() {
             <h5 className={styles.filterHeading}>Filters</h5>
             <div className={styles.filter}>
               <Filter filter={setFilterData} />
-              {/* <CuisineFilter setCuisine={setDataFilter} />
-              <CostFilter setCost={setDataFilter} />
-              <SortFilter setSort={setDataFilter} /> */}
             </div>
           </div>
           <center>

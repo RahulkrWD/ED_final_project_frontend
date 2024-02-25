@@ -38,7 +38,9 @@ export default function Login() {
         const user = response.data.user;
         localStorage.setItem("user", user.name);
         localStorage.setItem("uniqueId", user.uniqueId);
-        navigate("/");
+        sessionStorage.getItem("restaurant")
+          ? navigate(`/placeOrder`)
+          : navigate("/");
       } else {
         toast.error(response.data.message);
       }
