@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import CuisineFilter from "../Listing/CuisineFilter";
-import CostFilter from "../Listing/CostFilter";
+//import CuisineFilter from "../Listing/CuisineFilter";
+//import CostFilter from "../Listing/CostFilter";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
-import MealFilter from "../Listing/MealFilter";
+import Meal from "./Meal";
 import styles from "../Listing/Listing.module.css";
-import SortFilter from "../Listing/SortFilter";
+//import SortFilter from "../Listing/SortFilter";
 import Layout from "../LayOut/Layout";
+import Filter from "./Filter";
 
 function Listing() {
   const [meal, setMeal] = useState([]);
@@ -26,7 +27,7 @@ function Listing() {
     }
   };
 
-  function setDataFilter(data) {
+  function setFilterData(data) {
     setMeal(data);
   }
 
@@ -50,9 +51,10 @@ function Listing() {
           <div className={`${styles.filterArea}`}>
             <h5 className={styles.filterHeading}>Filters</h5>
             <div className={styles.filter}>
-              <CuisineFilter setCuisine={setDataFilter} />
+              <Filter filter={setFilterData} />
+              {/* <CuisineFilter setCuisine={setDataFilter} />
               <CostFilter setCost={setDataFilter} />
-              <SortFilter setSort={setDataFilter} />
+              <SortFilter setSort={setDataFilter} /> */}
             </div>
           </div>
           <center>
@@ -61,7 +63,7 @@ function Listing() {
                 <h1 className="text-danger">No result found</h1>
               ) : (
                 currentItems.map((items, index) => (
-                  <MealFilter key={index} listData={items} />
+                  <Meal key={index} listData={items} />
                 ))
               )}
               {meal.length > itemsPerPage && (

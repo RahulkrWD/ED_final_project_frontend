@@ -7,6 +7,7 @@ import Layout from "../LayOut/Layout";
 function Profile() {
   const [profiles, setProfile] = useState(null);
   const navigate = useNavigate();
+
   const { id } = useParams();
   useEffect(() => {
     async function fetchProfile() {

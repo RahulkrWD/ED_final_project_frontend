@@ -21,6 +21,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
       const response = await axios.post(
@@ -35,7 +36,6 @@ export default function Login() {
         const token = response.data.token;
         localStorage.setItem("authtoken", token);
         const user = response.data.user;
-        //  console.log(user);
         localStorage.setItem("user", user.name);
         localStorage.setItem("uniqueId", user.uniqueId);
         navigate("/");

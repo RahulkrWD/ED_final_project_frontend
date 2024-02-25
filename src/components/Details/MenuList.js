@@ -72,7 +72,7 @@ function MenuList({ heading }) {
 
   const [open, setOpen] = React.useState(false);
   return (
-    <>
+    <div>
       <React.Fragment>
         <Button
           className="btn text-bg-danger fs-5"
@@ -184,7 +184,7 @@ function MenuList({ heading }) {
           </Sheet>
         </Modal>
       </React.Fragment>
-    </>
+    </div>
   );
 }
 
