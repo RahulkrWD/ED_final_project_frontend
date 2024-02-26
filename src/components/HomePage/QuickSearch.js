@@ -27,33 +27,40 @@ function QuickSearch() {
   return (
     <div className="container">
       <h1 className={styles.heading}>Quick Searches</h1>
-      <p className={`${styles.tag} mt-3`}>
+      <p className="mt-3" style={{ color: "#8c96ab", fontSize: "18px" }}>
         Discover restaurants by type of meal
       </p>
       <div className={styles.cardFlex}>
         {loading ? (
-          <center>
+          <center style={{ minHeight: "40vh" }}>
             <h2 className="text-danger">Loading data....</h2>
           </center>
         ) : (
           quickSearch.map((data) => (
             <Link
               key={data.mealtype_id}
-              className={`card ${styles.card}`}
+              className={`${styles.card}`}
               to={`/${data.mealtype}/${data.mealtype_id}`}
             >
-              <div>
+              <div className="image">
                 <img
                   src={data.meal_image}
                   className={`card-img-top ${styles.image}`}
                   alt=""
                 />
               </div>
-              <div className={`card-body`}>
-                <h5 className={`card-title ${styles.mealType}`}>
+              <div className={`card-body p-3`}>
+                <h5 className="card-title" style={{ color: "#192f60" }}>
                   {data.mealtype}
                 </h5>
-                <p className={`card-text ${styles.description}`}>
+                <p
+                  className="card-text"
+                  style={{
+                    lineHeight: "25px",
+                    color: "#8c96ab",
+                    marginTop: "5px",
+                  }}
+                >
                   {data.content}
                 </p>
               </div>
