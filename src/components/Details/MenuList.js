@@ -134,11 +134,11 @@ function MenuList({ heading }) {
                         <div className={styles.addRemove}>
                           <button
                             onClick={() => {
-                              placeOrder(items.menu_name);
+                              removeOrder(items.menu_name);
                             }}
-                            className="btn text-bg-success fw-bold"
+                            className="btn text-bg-warning fw-bold"
                           >
-                            +
+                            -
                           </button>
 
                           <h6>
@@ -151,11 +151,11 @@ function MenuList({ heading }) {
 
                           <button
                             onClick={() => {
-                              removeOrder(items.menu_name);
+                              placeOrder(items.menu_name);
                             }}
-                            className="btn text-bg-warning fw-bold"
+                            className="btn text-bg-success fw-bold"
                           >
-                            -
+                            +
                           </button>
                         </div>
                       </div>

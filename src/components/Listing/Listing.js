@@ -43,35 +43,34 @@ function Listing() {
 
   return (
     <Layout title={"Listing zomato-app"}>
-      <div className="container">
-        <div className={`${styles.listing}`}>
-          <div className={`${styles.filterArea}`}>
-            <h5 className={styles.filterHeading}>Filters</h5>
-            <div className={styles.filter}>
-              <Filter filter={setFilterData} />
-            </div>
+      <div className={`container ${styles.listing}`}>
+        <div className={`${styles.filterArea}`}>
+          <h5 className={styles.filterHeading}>Filters</h5>
+          <div className={styles.filter}>
+            <Filter filter={setFilterData} />
           </div>
-          <center>
-            <div className={styles.mealItems}>
-              {currentItems.length === 0 ? (
-                <h1 className="text-danger">No result found</h1>
-              ) : (
-                currentItems.map((items, index) => (
-                  <Meal key={index} listData={items} />
-                ))
-              )}
-              {meal.length > itemsPerPage && (
-                <Pagination
-                  count={Math.ceil(meal.length / itemsPerPage)}
-                  page={currentPage}
-                  onChange={handleChangePage}
-                  variant="outlined"
-                  shape="rounded"
-                  className={styles.pagination}
-                />
-              )}
+        </div>
+
+        <div className="meal items">
+          {currentItems.length === 0 ? (
+            <div className=" p-5">
+              <h1 className="text-danger">No result found</h1>
             </div>
-          </center>
+          ) : (
+            currentItems.map((items, index) => (
+              <Meal key={index} listData={items} />
+            ))
+          )}
+          {meal.length > itemsPerPage && (
+            <Pagination
+              count={Math.ceil(meal.length / itemsPerPage)}
+              page={currentPage}
+              onChange={handleChangePage}
+              variant="outlined"
+              shape="rounded"
+              className="m-2"
+            />
+          )}
         </div>
       </div>
     </Layout>

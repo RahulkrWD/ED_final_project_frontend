@@ -1,20 +1,33 @@
 input {
   margin: 10px;
 }
-.select {
+.labelAnim {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.labelAnim:hover,
+.labelAnim:active {
+  transform: scale(1.1);
+}
+.dropDownFilter {
+  text-align: center;
+  width: 55vw;
+  border: 3px solid gainsboro;
+  border-radius: 10px;
   display: none;
-  padding: 4px;
-  border-radius: 7px;
-  outline: none;
+  color: #192f60;
+  cursor: pointer;
+}
+.dropDownList {
+  padding: 15px;
+  width: 55vw;
   color: #192f60;
 }
 @media (max-width: 1000px) {
-  .cuisineInput,
-  .costInput,
-  .sortInput {
+  .inputFilter {
     display: none;
   }
-  .select {
+  .dropDownFilter {
     display: block;
   }
 }

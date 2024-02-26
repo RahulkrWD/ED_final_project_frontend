@@ -4,39 +4,38 @@ import styles from "../Listing/Meal.module.css";
 
 function Meal({ listData }) {
   return (
-    <div className={`${styles.mealFilter} container`}>
-      <div className={styles.img}>
-        <img className={styles.img} src={listData.restaurant_thumb} alt="" />
-      </div>
-
-      <div className={styles.titles}>
-        <Link
-          to={`/details?restId=${listData.restaurant_id}`}
-          className={styles.restaurantName}
-        >
-          {listData.restaurant_name}
-        </Link>
-        <p>{listData.address}</p>
-        <span className={styles.rating}>{listData.rating_text} </span>
-        <p>{`Price:- Rs ${listData.cost}`}</p>
-
-        <div className="mealTypes">
-          <span className={`badge text-bg-primary ${styles.mealName}`}>
-            {listData.mealTypes[0].mealtype_name}
-          </span>
-          <span className={` badge text-bg-info ${styles.mealname}`}>
-            {listData.mealTypes[1].mealtype_name}
-          </span>
+    <div className={`${styles.mealFilter}`}>
+      <div className="d-flex">
+        <div className="image p-2">
+          <img className={styles.img} src={listData.restaurant_thumb} alt="" />
         </div>
-
-        <div className="cuisines">
-          <span className={`badge text-bg-danger ${styles.cuisines}`}>
-            {listData.cuisines[0].cuisine_name}
+        <div className="title address p-2">
+          <Link
+            to={`/details?restId=${listData.restaurant_id}`}
+            className={styles.restaurantName}
+          >
+            {listData.restaurant_name}
+          </Link>
+          <p className="mt-2">{listData.address}</p>
+          <span className="">{listData.rating_text} </span>
+        </div>
+      </div>
+      <hr />
+      <div className="meal details m-3">
+        <p>
+          CUISINES:
+          <span className=" fw-bold p-1">
+            {listData.cuisines[0].cuisine_name}{" "}
           </span>
-          <span className={`badge text-bg-warning ${styles.cuisines}`}>
+          |
+          <span className=" fw-bold p-1">
             {listData.cuisines[1].cuisine_name}
           </span>
-        </div>
+        </p>
+        <p>
+          {" "}
+          COST FOR TWO: <strong className="p-1">{listData.cost}</strong>
+        </p>
       </div>
     </div>
   );
