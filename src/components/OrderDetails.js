@@ -38,7 +38,6 @@ export default function OrderDetails({ datas }) {
             <p>order items: {datas.orderItems.toString()}</p>
             <p> Cost: {datas.cost}</p>
             <p>Address: {datas.address}</p>
-            <p>Order Status: Done</p>
           </div>
         </Box>
       </Modal>
