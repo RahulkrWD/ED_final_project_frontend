@@ -69,7 +69,7 @@ function Details() {
                 {details.image_gallery.map((items, index) => (
                   <img
                     className={styles.showImage}
-                    onClick={() => hangleImageClick(items)}
+                    onMouseEnter={() => hangleImageClick(items)}
                     key={index}
                     src={items}
                     alt=""
